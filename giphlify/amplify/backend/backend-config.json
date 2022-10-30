@@ -1,0 +1,22 @@
+{
+  "api": {
+    "giphlify": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "API_KEY",
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 365,
+              "apiKeyExpirationDate": "2023-10-30T07:13:02.360Z",
+              "description": ""
+            }
+          },
+          "additionalAuthenticationProviders": []
+        }
+      }
+    }
+  }
+}
