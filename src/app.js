@@ -35,6 +35,9 @@ const createNewCustomer = async e => {
     );
     // Print the data to the console once it comes back
     console.log(newCustomer);
+
+    getCustomers();
+
     // Reset the form (make the fields blank again)
     document.getElementById('create-form').reset();
   } catch (err) {
@@ -48,5 +51,32 @@ document
   .getElementById('create-form')
   .addEventListener('submit', createNewCustomer);
 
-// Follow instructions for https://docs.amplify.aws/lib/graphqlapi/getting-started/q/platform/js/#create-the-graphql-api
-// Create etc in app.js
+const getCustomers = async () => {
+  // select the container element & reset its current contents
+  const container = document.querySelector('.container');
+  container.innerHTML = '';
+
+  // make a request to get all our gifs
+  const customers = await API.graphql(graphqlOperation(listCustomers));
+
+  // loop through customers, create new customer element and add to container
+  customers.data.listCustomers.items.map(customer => {
+    const name = document.createElement('p');
+    name.innerHTML = customer.name;
+    document.querySelector('.container').appendChild(name);
+  });
+};
+
+const removeCustomer = async () => {
+  await API.graphql(
+    graphqlOperation(deleteCustomers, {
+      input: { id: currentCustomerId },
+    })
+  );
+  getGifs();
+};
+
+document.addEventListener('click', removeCustomer);
+
+// run this function on page load
+getCustomers();
