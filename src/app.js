@@ -12,7 +12,12 @@ await DataStore.save(
 
 import { Amplify, API, graphqlOperation } from 'aws-amplify';
 import awsconfig from './aws-exports';
-import { createCustomers } from './graphql/mutations';
+import {
+  createCustomers,
+  updateCustomers,
+  deleteCustomers,
+} from './graphql/mutations';
+//import { createCustomers } from '../amplify/backend/api/AmplifyCounter/build/schema.graphql';
 Amplify.configure(awsconfig);
 
 const createNewCustomer = async e => {
@@ -25,7 +30,7 @@ const createNewCustomer = async e => {
   try {
     // Make the API request: provide the createGif operation, provide the user's gif data
     const newCustomer = await API.graphql(
-      graphqlOperation(createCustomers, { input: name })
+      graphqlOperation(createCustomers, { input: customer })
     );
     // Print the data to the console once it comes back
     console.log(newCustomer);
