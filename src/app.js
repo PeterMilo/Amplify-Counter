@@ -17,7 +17,8 @@ import {
   updateCustomers,
   deleteCustomers,
 } from './graphql/mutations';
-//import { createCustomers } from '../amplify/backend/api/AmplifyCounter/build/schema.graphql';
+import { listCustomers } from './graphql/queries';
+
 Amplify.configure(awsconfig);
 
 const createNewCustomer = async e => {
