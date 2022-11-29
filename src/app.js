@@ -64,10 +64,10 @@ const getCustomers = async () => {
 };
 
 // remove customer section
-const removeCustomer = async () => {
-  // e.preventDefault();
+const removeCustomer = e => {
+  e.preventDefault();
 
-  await API.graphql(
+  API.graphql(
     graphqlOperation(deleteCustomers, {
       input: { id: currentCustomerId, _version: currentCustomerVersion },
     })
@@ -88,4 +88,6 @@ document
 // run this function on page load
 getCustomers();
 
-// !! Figure out how to make a deletion work..
+// !! Check if Edit functionality needs to be added. Otherwise,
+// maybe make the code live to get the deletion function to work? The Delete tag
+// is added as it should.
