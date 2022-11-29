@@ -1,15 +1,3 @@
-// import { DataStore } from '@aws-amplify/datastore';
-// import { Customers } from './models';
-
-/*
-await DataStore.save(
-  new Customers({
-    name: 'Lorem ipsum dolor sit amet',
-    mins: 1020,
-  })
-);
-*/
-
 import { Amplify, API, graphqlOperation } from 'aws-amplify';
 import awsconfig from './aws-exports';
 import {
@@ -20,6 +8,11 @@ import {
 import { listCustomers } from './graphql/queries';
 
 Amplify.configure(awsconfig);
+
+let currentCustomerId = '';
+let currentCustomerVersion = '';
+
+//
 
 const createNewCustomer = async e => {
   e.preventDefault();
@@ -46,11 +39,6 @@ const createNewCustomer = async e => {
   }
 };
 
-// run our createNewGif function when the form is submitted
-document
-  .getElementById('create-form')
-  .addEventListener('submit', createNewCustomer);
-
 const getCustomers = async () => {
   // select the container element & reset its current contents
   const container = document.querySelector('.container');
@@ -63,20 +51,41 @@ const getCustomers = async () => {
   customers.data.listCustomers.items.map(customer => {
     const name = document.createElement('p');
     name.innerHTML = customer.name;
+    name.addEventListener('click', e => {
+      currentCustomerId = customer.id;
+      currentCustomerVersion = customer._version;
+      document.getElementById('edit-name').value = customer.name;
+      console.log(currentCustomerId);
+      console.log(currentCustomerVersion);
+    });
+
     document.querySelector('.container').appendChild(name);
   });
 };
 
+// remove customer section
 const removeCustomer = async () => {
+  // e.preventDefault();
+
   await API.graphql(
     graphqlOperation(deleteCustomers, {
-      input: { id: currentCustomerId },
+      input: { id: currentCustomerId, _version: currentCustomerVersion },
     })
   );
-  getGifs();
+  console.log('Customer removed');
+  getCustomers();
 };
 
-document.addEventListener('click', removeCustomer);
+document
+  .getElementById('delete-button')
+  .addEventListener('click', removeCustomer);
+
+// run our createNewGif function when the form is submitted
+document
+  .getElementById('create-form')
+  .addEventListener('submit', createNewCustomer);
 
 // run this function on page load
 getCustomers();
+
+// !! Figure out how to make a deletion work..
