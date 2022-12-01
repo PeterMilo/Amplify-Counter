@@ -1,6 +1,10 @@
 //import { Amplify, API, graphqlOperation } from 'aws-amplify';
 const Amplify = require('aws-amplify');
-import awsconfig from './aws-exports';
+const API = require('aws-amplify');
+const graphqlOperation = require('aws-amplify');
+const awsconfig = require('aws-./aws-exports');
+
+//import awsconfig from './aws-exports';
 import {
   createCustomers,
   updateCustomers,
