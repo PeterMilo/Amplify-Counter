@@ -5,6 +5,7 @@
   "name": "amplify-counter",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "devDependencies": {
     "@babel/core": "^7.20.2",
     "babel-core": "^7.0.0-bridge.0",
@@ -29,5 +30,4 @@
   },
   "homepage": "https://github.com/PeterMilo/Amplify-Counter#readme",
   "description": ""
-
 }
