@@ -1,4 +1,9 @@
-import { Amplify, API, graphqlOperation } from '@aws-amplify';
+//import { Amplify, API, graphqlOperation } from 'aws-amplify';
+import {
+  Amplify,
+  API,
+  graphqlOperation,
+} from '../node_modules/aws-amplify/lib-esm/index';
 import awsconfig from './aws-exports';
 import {
   createCustomers,
