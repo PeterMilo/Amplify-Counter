@@ -15,8 +15,6 @@ Amplify.configure(awsconfig);
 let currentCustomerId = '';
 let currentCustomerVersion = '';
 
-//
-
 const createNewCustomer = async e => {
   e.preventDefault();
 
@@ -91,6 +89,5 @@ document
 // run this function on page load
 getCustomers();
 
-// !! Check if Edit functionality needs to be added. Otherwise,
-// maybe make the code live to get the deletion function to work? The Delete tag
-// is added as it should.
+// Link for troubleshooting: https://stackoverflow.com/questions/58211880/uncaught-syntaxerror-cannot-use-import-statement-outside-a-module-when-import
+// Latest error: Uncaught ReferenceError: require is not defined at app.js:5:17
