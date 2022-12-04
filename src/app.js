@@ -91,3 +91,5 @@ getCustomers();
 
 // Link for troubleshooting: https://stackoverflow.com/questions/58211880/uncaught-syntaxerror-cannot-use-import-statement-outside-a-module-when-import
 // Latest error: Uncaught ReferenceError: require is not defined at app.js:5:17
+
+// Potentially try build commands in npm to resolve issues?
