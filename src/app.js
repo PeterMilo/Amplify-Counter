@@ -1,7 +1,9 @@
-//import { Amplify, API, graphqlOperation } from 'aws-amplify';
-//import awsconfig from './aws-exports';
-//import {  createCustomers,  updateCustomers,  deleteCustomers,} from './graphql/mutations';
-//import { listCustomers } from './graphql/queries';
+import { Amplify, API, graphqlOperation } from 'aws-amplify';
+import awsconfig from './aws-exports';
+import { createCustomers, deleteCustomers } from './graphql/mutations';
+import { listCustomers } from './graphql/queries';
+
+/*
 const Amplify = require('aws-amplify');
 const API = require('aws-amplify');
 const graphqlOperation = require('aws-amplify');
@@ -9,6 +11,7 @@ const awsconfig = require('./aws-exports');
 const createCustomers = require('./graphql/mutations');
 const deleteCustomers = require('./graphql/mutations');
 const listCustomers = require('./graphql/queries');
+*/
 
 Amplify.configure(awsconfig);
 
@@ -92,4 +95,4 @@ getCustomers();
 // Link for troubleshooting: https://stackoverflow.com/questions/58211880/uncaught-syntaxerror-cannot-use-import-statement-outside-a-module-when-import
 // Latest error: Uncaught ReferenceError: require is not defined at app.js:5:17
 
-// Potentially try build commands in npm to resolve issues?
+// Potentially try build commands in npm to resolve issues
