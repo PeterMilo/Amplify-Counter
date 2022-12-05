@@ -1,6 +1,7 @@
 {
   "dependencies": {
-    "aws-amplify": "^5.0.3"
+    "aws-amplify": "^5.0.3",
+    "esm": "^3.2.25"
   },
   "name": "amplify-counter",
   "version": "1.0.0",
