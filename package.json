@@ -5,8 +5,8 @@
   },
   "name": "amplify-counter",
   "version": "1.0.0",
-  "type": "module",
   "main": "app.js",
+  "type": "module",
   "devDependencies": {
     "@babel/cli": "^7.19.3",
     "@babel/core": "^7.20.2",
